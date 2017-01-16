@@ -1,0 +1,27 @@
+<!-- 推荐电影 -->
+<view class="container">
+  <loading hidden="{{!loading}}" >
+    加载中...
+  </loading>
+  <view class="header">
+    <text>{{title}}</text>
+  </view>
+  <view class="list">
+    <navigator wx:for="{{list}}" url="../item/item?id={{item.id}}">
+      <view class="list-item">
+        <image mode="aspectFit" src="{{item.images.small}}"></image>
+        <view class="info">
+          <text class="title">{{item.title}}</text>
+          <text style="font-size: 25rpx;display: block;color: #CCCCCC;font-family: 'microsoft yahei';">{{item.original_title}}（{{item.year}}）</text>
+          <text style="font-size: 25rpx;display: block;color: #A6A6A6;font-family: microsoft yahei;">
+            导演：
+            <block wx:for="{{item.directors}}">{{item.name}}</block>
+          </text>
+        </view>
+        <view class="rating">
+          <text>{{item.rating.average}}</text>
+        </view>
+      </view>
+    </navigator>
+  </view>
+</view>
